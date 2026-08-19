@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>【Exec】远程设备接管能力配置方案 - 橙皮书资料库</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.7;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+  header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+  }
+  header h1 { font-size: 1.8em; margin-bottom: 10px; }
+  header a { color: rgba(255,255,255,0.9); text-decoration: none; font-size: 0.95em; }
+  header a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .badge-prd { background: #e3f2fd; color: #1976d2; }
+  .badge-research { background: #f3e5f5; color: #7b1fa2; }
+  .badge-goal { background: #e8f5e9; color: #388e3c; }
+  .badge-exec { background: #fff3e0; color: #f57c00; }
+  .badge-source { background: #fce4ec; color: #c2185b; }
+  .content {
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .content h2 { font-size: 1.4em; margin: 25px 0 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 6px; }
+  .content h3 { font-size: 1.15em; margin: 20px 0 10px; color: #444; }
+  .content p { margin-bottom: 12px; color: #555; }
+  .content ul, .content ol { margin: 10px 0 10px 20px; color: #555; }
+  .content li { margin-bottom: 6px; }
+  .content table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+  .content th, .content td { border: 1px solid #e0e0e0; padding: 8px 12px; text-align: left; font-size: 0.95em; }
+  .content th { background: #f5f5f5; font-weight: 600; }
+  .content strong { color: #333; }
+  .content a { color: #667eea; }
+  footer {
+    text-align: center;
+    padding: 20px;
+    color: #999;
+    font-size: 0.85em;
+    margin-top: 30px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><span class="badge badge-exec">Exec</span> 【Exec】远程设备接管能力配置方案</h1>
+    <a href="./index.html">← 返回橙皮书资料库首页</a>
+  </header>
+  <div class="content">
+    <h2>目标</h2>
+<p>在手机上可监控电脑端任务进度、中途介入调整指令，并按任务类型选择“本地电脑执行”或“云端执行”。</p>
+
+<h2>执行方案</h2>
+<h3>远程监控层</h3>
+<p>推荐：SSH + tmux + 状态文件组合，成本最低、配置最快。</p>
+
+<h3>中途介入机制</h3>
+<p>指令队列文件 + 状态标记文件，双保险。agent 定时读取 pending_commands.txt，手机随时写入新指令。</p>
+
+<h3>执行位置选择</h3>
+<table><tr><th>任务类型</th><th>推荐执行位置</th><th>原因</th></tr>
+<tr><td>长耗时批量任务</td><td>本地电脑</td><td>利用闲置算力</td></tr>
+<tr><td>需要 GUI/浏览器</td><td>本地电脑</td><td>远程桌面接管</td></tr>
+<tr><td>轻量对话/推理</td><td>云端</td><td>电脑锁屏不影响</td></tr>
+<tr><td>定时闲时任务</td><td>本地电脑</td><td>夜间自动跑，白天手机查看结果</td></tr>
+</table>
+
+<h2>实施步骤</h2>
+<ol>
+<li>确认电脑 SSH 可达，配置密钥免密登录</li>
+<li>安装 tmux，建立常驻会话命名规范</li>
+<li>在 agent 工作目录建立 control.flag + pending_commands.txt</li>
+<li>配置 Telegram/飞书推送，绑定关键节点通知</li>
+<li>测试：手机 SSH → attach tmux → 查看任务进度 → 写入暂停指令 → agent 响应</li>
+</ol>
+
+<h2>下一步行动建议</h2>
+<ol>
+<li>先核对基线：确认电脑 SSH 可达、tmux 可用、手机终端可连接</li>
+<li>跑通最小闭环：手机 SSH → attach tmux → 查看进度 → 写入指令 → agent 响应</li>
+<li>把「执行位置决策表」写入现有 scheduler 任务配置</li>
+</ol>
+  </div>
+  <footer>
+    <p>Powered by Remio · 2026-08-19 · 橙皮书资料库</p>
+  </footer>
+</div>
+</body>
+</html>
