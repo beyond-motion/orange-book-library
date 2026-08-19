@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>橙皮书资料库</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+    padding: 40px 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 12px;
+  }
+  header h1 { font-size: 2.5em; margin-bottom: 10px; }
+  header p { font-size: 1.1em; opacity: 0.9; }
+  .section { margin-bottom: 50px; }
+  .section-title {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #667eea;
+    color: #667eea;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: white;
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 4px solid #667eea;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  }
+  .card h3 {
+    font-size: 1.15em;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  .card p {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 15px;
+  }
+  .card a {
+    display: inline-block;
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9em;
+  }
+  .card a:hover { text-decoration: underline; }
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.75em;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .badge-prd { background: #e3f2fd; color: #1976d2; }
+  .badge-research { background: #f3e5f5; color: #7b1fa2; }
+  .badge-goal { background: #e8f5e9; color: #388e3c; }
+  .badge-exec { background: #fff3e0; color: #f57c00; }
+  .badge-source { background: #fce4ec; color: #c2185b; }
+  footer {
+    text-align: center;
+    padding: 30px 0;
+    color: #999;
+    font-size: 0.9em;
+    border-top: 1px solid #e0e0e0;
+    margin-top: 60px;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>📚 橙皮书资料库</h1>
+    <p>基于 Remio 构建的可分享知识库 · 内容来源于花叔 B 站文章及后续深度拆解</p>
+  </header>
+
+  <div class="section">
+    <h2 class="section-title">🎯 核心产出</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-prd">PRD</span>
+        <h3>【PRD】AI 原生资料库总纲</h3>
+        <p>合并了长内容分片存储、HTML 原生内容格式、版本化协作资料库三大方向的统一产品需求文档。</p>
+        <a href="https://remio.ai/note/msy6dx8qc8nlyshjp2k" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-prd">PRD</span>
+        <h3>【PRD】长内容分片存储架构</h3>
+        <p>针对 40 万字级橙皮书的存储方案：章级文件切片 + 目录索引 + agent 按需挂载。</p>
+        <a href="https://remio.ai/note/msy64w6je1coo92e236" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-prd">PRD</span>
+        <h3>【PRD】HTML 原生内容格式体系</h3>
+        <p>HTML 作为 AI 时代原生格式的设计规范：可编辑、可审阅、可多端分发。</p>
+        <a href="https://remio.ai/note/msy669zji78749ue9lf" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-prd">PRD</span>
+        <h3>【PRD】版本化协作资料库</h3>
+        <p>AI 协作编辑 + 版本历史 + 建议模式 + 回滚能力的产品方案。</p>
+        <a href="https://remio.ai/note/msy681ci0rbwlbbz2eto" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-goal">Goal</span>
+        <h3>【Goal】建立知识复利体系</h3>
+        <p>知识复利的目标契约：定义"上一次的成果，就是下一次工作的起点"的落地机制。</p>
+        <a href="https://remio.ai/note/msy6is3g87delc7xkp" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>【Research】多 Agent 内容流水线设计</h3>
+        <p>复杂内容生产的多 Agent 协作流水线：调研、写作、审查、排版各归各位。</p>
+        <a href="https://remio.ai/note/msy6jhqkpdp26cpifam" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-exec">Exec</span>
+        <h3>【Exec】远程设备接管能力配置方案</h3>
+        <p>人在外面，电脑接着干：SSH + tmux + 状态文件的远程接管实施方案。</p>
+        <a href="https://remio.ai/note/msy6kbq4qdn2fbia6ls" target="_blank">查看笔记 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">📖 源素材与调研</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-source">Source</span>
+        <h3>橙皮书发布复盘：从 GitHub 到 WorkBuddy 资料库</h3>
+        <p>花叔 B 站文章原文，记录了 10 本橙皮书搬进 WorkBuddy 的全过程与核心洞察。</p>
+        <a href="https://remio.ai/note/msy5drpvxv93fnblha" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-source">Source</span>
+        <h3>DeepSeek Harness 开发者预览版</h3>
+        <p>DeepSeek 官方 Harness 页面：Agent = Model + Harness，一切皆插件的架构哲学。</p>
+        <a href="https://remio.ai/note/ffd5c7dc8313e41acbe91fec43b70c18" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>📮 DeepSeek Harness 插件生态选型指南</h3>
+        <p>1800+ 插件怎么选？按场景分类的插件选型指南（公众号/知乎版）。</p>
+        <a href="https://remio.ai/note/msvy6jjexp8dketkkd" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>📗 DeepSeek Harness 插件生态全景</h3>
+        <p>插件生态全景图：发布节奏、核心理念、安装方式、热门插件 Top 10。</p>
+        <a href="https://remio.ai/note/msvg8i3yr8uuycvu06a" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>🌱 DeepSeek Harness 热榜 2 个实用插件</h3>
+        <p>dot-skill（把人蒸馏成 Skill）+ OpenBiliClaw（自进化内容发现 Agent）。</p>
+        <a href="https://remio.ai/note/msvfs5uikw9etl9tvy9" target="_blank">查看笔记 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">🛠 内容工程</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>我把 DeepSeek Harness 的 11 个工程 Skill 全部拆了一遍</h3>
+        <p>逐份精读 .agents/skills/ 目录下的 11 个 SKILL.md，提炼 Agent 时代的「同事入职手册」。</p>
+        <a href="https://remio.ai/note/msunr7u3x0xmjxu49qr" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-research">Research</span>
+        <h3>DeepSeek 开源了 11 个「工程 Skill」</h3>
+        <p>比框架更值钱的是这份纪律：11 份可执行、可验证的 SOP 全解读。</p>
+        <a href="https://remio.ai/note/msufmz05syoe4ddldn" target="_blank">查看笔记 →</a>
+      </div>
+      <div class="card">
+        <span class="badge badge-exec">Exec</span>
+        <h3>ZCode 闲时任务卡-04-Harness 内容工程</h3>
+        <p>Harness 内容生产流水线：源码精读 → 选题 → 写作 → 审查 → 排版全流程 SOP。</p>
+        <a href="https://remio.ai/note/msumeioxn106ik5rsm" target="_blank">查看笔记 →</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2 class="section-title">📁 本地文件</h2>
+    <div class="grid">
+      <div class="card">
+        <span class="badge badge-source">PDF</span>
+        <h3>DeepSeek-Harness 白皮书</h3>
+        <p>131 页 · 七部三十八章 · 全部结论回源码核对。本地 PDF 文件。</p>
+        <a href="/Users/wanglingwei/Documents/Remio-Output/DeepSeek Harness/DeepSeek-Harness-白皮书.pdf">打开文件 →</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Powered by Remio · 创建时间：2026-08-18 · 状态：测试中</p>
+    <p style="margin-top: 5px;">基于花叔《橙皮书发布复盘：从 GitHub 到 WorkBuddy 资料库》构建</p>
+  </footer>
+</div>
+</body>
+</html>
